@@ -1,0 +1,164 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@100;500;700&display=swap');
+
+:root {
+    --ff-primary: 'Barlow Semi Condensed', sans-serif;    
+    --clr-main-background: hsl(210, 46%, 95%);
+    --clr-background-primary-1: hsl(263, 55%, 52%);
+    --clr-background-primary-2: hsl(219, 29%, 14%);
+    --clr-background-primary-3: hsl(217, 19%, 35%);
+    --clr-backgorund-white: hsl(0, 0%, 100%);
+    --clr-text-light-gray: hsl(0, 0%, 81%);
+}
+
+/*---- CSS Resets-------------- */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+/* ----------------------- */
+
+
+/*----- Utility/Custom Classes ----------*/
+.flex {
+    display: flex;
+}
+
+.grid {
+    display: grid;
+}
+
+/* ------------------- */
+
+
+/* Styling for elements  */
+body,
+html {
+    width: 100%;
+    height: 100%;
+}
+
+#root {
+    width: 100%;
+    height: fit-content;
+}
+
+body {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--clr-main-background);
+    font-family: var(--ff-primary);
+}
+
+p {
+    opacity: 70%;
+    font-size: 0.82rem;
+    font-weight: 500;
+}
+
+/* ---------- */
+
+
+/* container styling */
+.container {
+    grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+    grid-auto-rows: auto;
+    gap: 2rem;
+    padding-inline: 6%;
+    padding-block: 6%;
+}
+
+/* ---------------------- */
+
+
+/* Testimony card styling --------*/
+.card {
+    border-radius: 20px;
+    padding: 2rem;
+}
+
+.card__article {
+    height: 100%;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.card__header {
+    align-items: center;
+    gap: 1rem;
+}
+
+.card__testimony-header {
+    margin-block: 1rem;
+    font-weight: 600;
+}
+
+.card__img {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+}
+
+.card__user-status {
+    opacity: 50%;
+}
+
+.card--1 {
+    background-color: var(--clr-background-primary-1);
+    background-image: url('/images/bg-pattern-quotation.svg');
+    background-repeat: no-repeat;
+    background-position: 80% 0;
+    grid-column: 1 /span 2;
+
+}
+
+.card--2 {
+    background-color: var(--clr-backgorund-white);
+}
+
+.card--3 {
+    background-color: var(--clr-background-primary-3);
+}
+
+.card--4 {
+    background-color: var(--clr-backgorund-white);
+    grid-column: -1 / -2;
+    grid-row: 1 / span 2;
+}
+
+.card--5 {
+    background-color: var(--clr-background-primary-2);
+    grid-column: span 2;
+}
+
+.card:not(.card--2, .card--4) {
+    color: var(--clr-text-light-gray);
+    font-weight: 100;
+}
+
+.card--2,
+.card--4 {
+    color: var(--clr-background-primary-3);
+}
+
+/* ------------------------------ */
+
+
+/* --------Media Queries----- */
+@media (max-width: 970px) {
+    .card--4 {
+        grid-row: inherit;
+        grid-column: inherit;
+    }
+
+    .card--5 {
+        grid-column: inherit;
+    }
+
+    .card--1 {
+        grid-column: inherit;
+    }
+}
